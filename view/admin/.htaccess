@@ -1,0 +1,51 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks -MultiViews -Indexes
+	RewriteEngine On
+
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+
+    #DASHBOARD
+	RewriteRule ^dashboard ./index.php?Pagina=dashboard [NC,L]
+
+	#SEMESTRE
+	RewriteRule ^semestre/excluir/?$ ./semestre.php [NC,L,END]
+	RewriteRule ^semestre/novo/?$ ./semestre.php [NC,L,END]
+	RewriteRule ^semestre/listar/?$ ./index.php?Pagina=semestreListar [NC,L]
+	RewriteRule ^semestre/?([0-9]+)$ ./index.php?Pagina=semestre&codigo=$1 [NC,L]
+	RewriteRule ^semestre ./index.php?Pagina=semestre [NC,L]
+
+	#Professor
+	RewriteRule ^professor/excluir/?$ ./professor.php [NC,L,END]
+	RewriteRule ^professor/novo/?$ ./professor.php [NC,L,END]
+	RewriteRule ^professor/listar/?$ ./index.php?Pagina=professorListar [NC,L]
+	RewriteRule ^professor/?([0-9]+)$ ./index.php?Pagina=professor&codigo=$1 [NC,L]
+	RewriteRule ^professor ./index.php?Pagina=professor [NC,L]
+
+	#Materia
+	RewriteRule ^materia/excluir/?$ ./materia.php [NC,L,END]
+	RewriteRule ^materia/novo/?$ ./materia.php [NC,L,END]
+	RewriteRule ^materia/listar/?$ ./index.php?Pagina=materiaListar [NC,L]
+	RewriteRule ^materia/?([0-9]+)$ ./index.php?Pagina=materia&codigo=$1 [NC,L]
+	RewriteRule ^materia ./index.php?Pagina=materia [NC,L]
+
+	#Categoria
+	RewriteRule ^categoria/excluir/?$ ./categoria.php [NC,L,END]
+	RewriteRule ^categoria/novo/?$ ./categoria.php [NC,L,END]
+	RewriteRule ^categoria/listar/?$ ./index.php?Pagina=categoriaListar [NC,L]
+	RewriteRule ^categoria/?([0-9]+)$ ./index.php?Pagina=categoria&codigo=$1 [NC,L]
+	RewriteRule ^categoria ./index.php?Pagina=categoria [NC,L]
+
+	#Projeto
+	RewriteRule ^projeto/excluir/?$ ./projeto.php [NC,L,END]
+	RewriteRule ^projeto/novo/?$ ./projeto.php [NC,L,END]
+	RewriteRule ^projeto/listar/?$ ./index.php?Pagina=projetoListar [NC,L]
+	RewriteRule ^projeto/?([0-9]+)$ ./index.php?Pagina=projeto&codigo=$1 [NC,L]
+	RewriteRule ^projeto ./index.php?Pagina=projeto [NC,L]
+
+	#Entrar
+	RewriteRule ^entrar/?$ ./login.php [NC,L,END]
+
+	#Sair
+	RewriteRule ^sair/?$ ./sair.php [NC,L,END]
+
+</IfModule>
